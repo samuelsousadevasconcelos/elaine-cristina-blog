@@ -261,3 +261,154 @@ a {
   margin: 0;
   font-size: 0.92rem;
 }
+
+/* ---------- Header / Footer (identicos a elaine-cristina-advocacia-lp/
+   frontend/public/css/style.css — mesma marca, um so site aos olhos de quem
+   visita) ---------- */
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.topbar {
+  background: var(--navy-deep);
+  color: #c3c8d6;
+  font-size: 0.82rem;
+  padding: 10px 0;
+}
+.topbar .container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.topbar a {
+  color: #c3c8d6;
+}
+.topbar-links {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+.topbar-whatsapp {
+  color: var(--gold);
+  font-weight: 600;
+}
+.topbar-whatsapp:hover {
+  color: #fff;
+}
+.topbar-email,
+.topbar-phone {
+  font-size: 0.78rem;
+}
+@media (max-width: 599px) {
+  .topbar-whatsapp {
+    display: none;
+  }
+}
+
+.site-header {
+  background: #fff;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+  z-index: 30;
+}
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px 28px;
+  flex-wrap: wrap;
+}
+.brand {
+  font-family: var(--font-head);
+  font-size: 1.3rem;
+  color: var(--navy);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.brand-logo img {
+  height: 60px;
+  width: auto;
+  display: block;
+}
+.main-nav {
+  display: none;
+  gap: 22px;
+  flex-wrap: wrap;
+  row-gap: 8px;
+}
+.main-nav a {
+  color: var(--ink);
+  font-size: 0.9rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.main-nav a:hover {
+  color: var(--gold);
+}
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-shrink: 0;
+}
+@media (min-width: 1100px) {
+  .main-nav {
+    display: flex;
+  }
+}
+
+footer.site-footer {
+  background: var(--navy-deep);
+  color: #a8afc0;
+  padding: 56px 0 26px;
+  font-size: 0.88rem;
+}
+.footer-grid {
+  display: grid;
+  gap: 32px;
+  margin-bottom: 36px;
+}
+@media (min-width: 780px) {
+  .footer-grid {
+    grid-template-columns: 1.3fr 1fr 1.2fr;
+  }
+}
+.footer-grid .brand-logo img {
+  height: 60px;
+  width: auto;
+  display: block;
+}
+.footer-grid h4 {
+  color: var(--gold);
+  font-size: 0.88rem;
+  margin: 0 0 16px;
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.footer-grid a {
+  color: #a8afc0;
+  display: block;
+  margin-bottom: 10px;
+}
+.footer-grid a:hover {
+  color: var(--gold);
+}
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 0.8rem;
+}
