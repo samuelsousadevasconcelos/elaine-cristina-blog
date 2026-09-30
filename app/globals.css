@@ -1,16 +1,26 @@
+/* Tokens identicos ao design system real da LP (elaine-cristina-advocacia-lp/
+   frontend/public/css/style.css) — mesma marca, nao um sistema visual novo. */
 :root {
   --navy: #003375;
+  --navy-deep: #063375;
   --navy-ink: #0f1e33;
-  --gold: #93813f;
-  --paper: #f7f8fb;
+  --gold: #d7cb70;
+  --gold-light: #d9b686;
+  --paper: #f7f6f4;
   --paper-raised: #ffffff;
-  --ink: #1b2430;
-  --ink-soft: #4c5872;
-  --ink-faint: #848da3;
-  --line: #dbe1ec;
-  --line-strong: #c1cbdf;
+  --ink: #26292e;
+  --ink-soft: #415674;
+  --ink-faint: #7c88a0;
+  --line: #e9e6df;
+  --line-strong: #d8d4c9;
   --ok: #1a7f4b;
-  --warn: #93813f;
+  --warn: #d7cb70;
+  --radius: 4px;
+  --radius-lg: 8px;
+  --shadow: 0 20px 45px rgba(20, 24, 40, 0.12);
+  --shadow-sm: 0 8px 22px rgba(20, 24, 40, 0.08);
+  --font-head: 'Playfair Display', Georgia, serif;
+  --font-body: 'Poppins', 'Segoe UI', sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -21,7 +31,9 @@
     --ink-soft: #aab3c4;
     --ink-faint: #737e93;
     --navy: #7fa3d6;
-    --gold: #d9cf95;
+    --navy-deep: #7fa3d6;
+    --gold: #e3daa4;
+    --gold-light: #e3daa4;
     --line: #263145;
     --line-strong: #37445c;
   }
@@ -34,7 +46,9 @@
   --ink-soft: #aab3c4;
   --ink-faint: #737e93;
   --navy: #7fa3d6;
-  --gold: #d9cf95;
+  --navy-deep: #7fa3d6;
+  --gold: #e3daa4;
+  --gold-light: #e3daa4;
   --line: #263145;
   --line-strong: #37445c;
 }
@@ -50,19 +64,33 @@ html {
 body {
   margin: 0;
   background: var(--paper);
-  color: var(--ink);
-  font-family: -apple-system, 'Segoe UI', system-ui, sans-serif;
-  line-height: 1.6;
+  color: var(--ink-soft);
+  font-family: var(--font-body);
+  line-height: 1.7;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-head);
+  color: var(--navy);
+  font-weight: 600;
+  line-height: 1.25;
 }
 
 a {
-  color: var(--navy);
+  color: var(--gold);
+  text-decoration: none;
 }
 
 .wrap {
   max-width: 760px;
   margin: 0 auto;
   padding: 0 20px;
+}
+
+.wrap-wide {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
 }
 
 .full-bleed {
@@ -72,4 +100,164 @@ a {
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
+}
+
+.eyebrow {
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.82rem;
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  border-radius: var(--radius);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: 1.5px solid transparent;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+.btn-gold {
+  background: var(--gold);
+  color: #fff;
+}
+.btn-gold:hover {
+  background: #ffffff;
+  color: var(--navy);
+  border-color: var(--navy);
+}
+
+/* ---------- Blog index (hub) ---------- */
+
+.blog-hero {
+  background: var(--navy);
+  padding: 56px 0 72px;
+  text-align: center;
+}
+.blog-hero h1 {
+  color: #fff;
+  font-size: 2.4rem;
+  margin: 10px 0 14px;
+}
+.blog-hero p {
+  color: rgba(255, 255, 255, 0.78);
+  max-width: 56ch;
+  margin: 0 auto;
+  font-size: 1rem;
+}
+.blog-hero .eyebrow {
+  color: var(--gold-light);
+}
+
+.blog-grid {
+  display: grid;
+  gap: 28px;
+  margin: -44px auto 56px;
+  position: relative;
+  z-index: 2;
+}
+@media (min-width: 640px) {
+  .blog-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (min-width: 980px) {
+  .blog-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+.blog-card {
+  background: var(--paper-raised);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.blog-card:hover {
+  box-shadow: var(--shadow);
+  transform: translateY(-3px);
+}
+.blog-card-photo {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  background-size: cover;
+  background-position: center;
+}
+.blog-card-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: var(--gold);
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 5px 10px;
+  border-radius: var(--radius);
+}
+.blog-card-body {
+  padding: 22px 22px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+.blog-card-meta {
+  font-size: 0.76rem;
+  color: var(--ink-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.blog-card-body h2 {
+  font-size: 1.15rem;
+  margin: 0;
+}
+.blog-card-body h2 a {
+  color: var(--navy);
+}
+.blog-card-body p {
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  margin: 0;
+  flex: 1;
+}
+.blog-card-readmore {
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+  color: var(--gold);
+  margin-top: 4px;
+}
+
+.blog-cta-band {
+  background: var(--navy);
+  border-radius: var(--radius-lg);
+  padding: 40px 36px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-bottom: 56px;
+}
+.blog-cta-band h2 {
+  color: #fff;
+  font-size: 1.4rem;
+  margin: 0 0 6px;
+}
+.blog-cta-band p {
+  color: rgba(255, 255, 255, 0.72);
+  margin: 0;
+  font-size: 0.92rem;
 }
