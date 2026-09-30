@@ -30,23 +30,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body>
-        {noindexAll && (
-          <div
-            style={{
-              background: '#93813f',
-              color: '#fff',
-              textAlign: 'center',
-              fontSize: '13px',
-              padding: '6px 12px',
-              fontFamily: 'system-ui, sans-serif',
-            }}
-          >
-            Ambiente de demonstração — não indexado — uso interno
-          </div>
-        )}
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
