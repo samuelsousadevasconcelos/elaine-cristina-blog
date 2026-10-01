@@ -1,25 +1,17 @@
 import type { MetadataRoute } from 'next';
 
-// Bloqueia indexação enquanto o projeto estiver na infraestrutura provisória
-// (fora da VPS da Elaine, aguardando aprovação/pagamento da proposta).
-// Quando migrar pro domínio dela, remover este disallow global.
+// Indexacao LIBERADA em 2026-10-01 (autorizacao explicita do Samuel apos a
+// Wave 1 publicada). Antes disso, este arquivo bloqueava tudo condicionado a
+// NOINDEX_ALL — removido porque o Easypanel so injeta env var em runtime do
+// container, e o Next.js grava process.env no bundle do build (nao e lido de
+// novo depois), entao esse tipo de toggle nunca refletia a env var real sem
+// rebuild. Se precisar bloquear de novo no futuro, mude este arquivo direto.
 export default function robots(): MetadataRoute.Robots {
-  const noindexAll = process.env.NOINDEX_ALL !== 'false';
-
-  if (noindexAll) {
-    return {
-      rules: {
-        userAgent: '*',
-        disallow: '/',
-      },
-    };
-  }
-
   return {
     rules: {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: `${process.env.NEXT_PUBLIC_SITE_URL ?? ''}/sitemap.xml`,
+    sitemap: 'https://blog.advocaciaelainecristina.com.br/sitemap.xml',
   };
 }

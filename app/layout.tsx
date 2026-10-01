@@ -3,8 +3,8 @@ import './globals.css';
 import { SiteHeader } from '@/components/SiteHeader';
 import { SiteFooter } from '@/components/SiteFooter';
 
-const noindexAll = process.env.NOINDEX_ALL !== 'false';
-
+// Sem campo "robots" aqui = indexavel (padrao do Next.js). Indexacao
+// liberada em 2026-10-01 — ver app/robots.ts pro historico da decisao.
 export const metadata: Metadata = {
   title: {
     default: 'Divórcio Extrajudicial | Elaine Cristina Advocacia',
@@ -12,9 +12,6 @@ export const metadata: Metadata = {
   },
   description:
     'Conteúdo informativo sobre divórcio extrajudicial em cartório — Elaine Cristina Advocacia, OAB/SP 215.743.',
-  robots: noindexAll
-    ? { index: false, follow: false }
-    : { index: true, follow: true },
 };
 
 export default function RootLayout({
